@@ -25,7 +25,7 @@ SECRET_KEY = 'aelt*nl_na#rlx*lmm3m+jd02d8y^8i_t7e^s#d388(nexavs3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS=['*']
 
 
 # Application definition
