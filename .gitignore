@@ -94,5 +94,5 @@ ENV/
 .DS_Store
 .pyc
 
-ye_dev.py
+
 manage.py
