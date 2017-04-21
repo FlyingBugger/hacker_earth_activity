@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+/register_site/.idea/
 
 # C extensions
 *.so
