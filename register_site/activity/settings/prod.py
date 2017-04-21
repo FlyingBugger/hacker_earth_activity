@@ -21,3 +21,5 @@ DATABASES = {
         }
     }
 }
+
+MEDIA_ROOT = '/root/hacker_earth_activity/upload_assets'
