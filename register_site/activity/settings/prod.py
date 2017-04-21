@@ -1,6 +1,6 @@
 from base import *
 
-
+DEBUG = False
 
 
 DATABASES = {
@@ -12,7 +12,7 @@ DATABASES = {
     'default':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'hacker_earth_db',
-        'USER':'root',
+        'USER':'xianyong',
         'PASSWORD':'123456',
         'HOST':'',
         'PORT':3306,
@@ -21,5 +21,3 @@ DATABASES = {
         }
     }
 }
-
-
