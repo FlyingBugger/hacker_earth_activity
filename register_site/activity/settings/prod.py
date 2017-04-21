@@ -22,4 +22,10 @@ DATABASES = {
     }
 }
 
+INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
+MIDDLEWARE = PREREQ_MIDDLEWARE + PROJECT_MIDDLEWARE
+
+
+
+
 MEDIA_ROOT = '/root/hacker_earth_activity/upload_assets'
