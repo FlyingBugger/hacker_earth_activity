@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<button class="back">X</button>
+
+<form class="form-container row" action='/post_message/' method='post'>
+	{% csrf_token %}
+	<input class="col-xs-12" name='name' placeholder="姓名"></input>
+
+	<input class="col-xs-12" name='email' type='email' placeholder="邮箱"></input>
+
+	<input class="col-xs-12" name='phone' placeholder="手机"></input>
+
+	<input class="col-xs-12" name='qq' placeholder="QQ"></input>
+
+	<button class="submit" type='submit'>报名</button>
+
+	<p class="msg">报名成功!</p>
+</form>
+
+{% endblock %}
+
+{% block additional_js %}
+<script src="{% static 'js/signup.app.js' %}"></script>
+{% endblock %}
