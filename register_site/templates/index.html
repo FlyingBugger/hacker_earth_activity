@@ -2,7 +2,73 @@
 {% load staticfiles %}
 
 {% block content %}
-<form class="register">
+
+
+<div class="container-fluid monkey_view">
+
+	<img class="he_china" src="{% static 'imgs/he_china.png' %}">
+
+	<div class="comptition_time">
+		<p class="time_1">比赛时间</p>
+		<p class="time_2">05/13</p>
+		<p class="time_3">星期六</p>
+		<p class="time_4">第一届编程大赛</p>
+	</div>
+
+	<img class="monkey_img" src="{% static 'imgs/monkey.png' %}">
+	<img class="register_now" src="{% static 'imgs/register_now.png' %}">
+</div>
+
+
+<div class="container-fluid introduce_view">
+
+<div class="introduce">
+	<h3>比赛介绍</h3>
+	<div class="devider"></div>
+	<p>本次编程大赛是HackerEarthChina作为国际最大的IT专业测评、编程大赛举办平台在中国举办的第一次大赛，旨在为编程人才及爱好者提供编程交流的盛会，深度发掘编程人才的潜能。预计届时将有百余家知名高校的优秀学子，以及近万编程爱好者参与。组委会将为参赛团队提供优质平台与雄厚的资本支持，也为广大优秀人才提供待遇优厚的Offer及实习机会。
+	</p>
+</div>
+<div class="introduce">
+	<h3>比赛时间</h3>
+	<div class="devider"></div>
+	<p>2017年5月13日 <br /> 
+		10:00-12:00    上半场<br />
+		12:00-12:30    中场休息  免费提供午餐<br />
+		12:30-14:30    下半场<br />
+		14:30-15:00    评审<br />
+		15:30              颁奖典礼
+	</p>
+</div>
+<div class="introduce">
+	<h3>比赛奖品</h3>
+	<div class="devider"></div>
+	<p>一等奖  <br />  
+		高端键鼠一套（1300元）<br />
+		二等奖    <br />
+		耳机（800元） <br />
+		三等奖    <br />
+		鼠标（400元） <br />
+		效率奖    <br />
+		键盘（400元）<br />
+		特别奖    <br />
+		U盘（150元）</p>
+</div> 
+
+</div>
+
+<div class="container-fluid organize_view">
+	<p class="organize_small">主办单位</p>
+	<p class="organize_big">HACKEREARTH CHINA</p>
+	<p class="organize_small">承办方</p>
+	<p class="organize_big">电子科大计算机学院  TCL创意俱乐部</p>
+	<p class="organize_big">大赛讨论QQ群：608623743</p>
+	
+
+</div>
+
+<div class="container-fluid">
+
+<form class="register" action="" method="post">
 	<label>
 		姓名
 		<input class="form-control" name='name'></input>
@@ -17,4 +83,7 @@
 	</label>
 	<button class="btn" type='submit'>报名</button>
 </form>
+</div>
+
+
 {% endblock %}
