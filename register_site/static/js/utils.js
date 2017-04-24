@@ -6,3 +6,7 @@ String.prototype.format = function() {
     }
     return formatted
 }
+
+$(function () {
+	$('html').css('zoom', $(window).width() / 750)
+})

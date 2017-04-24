@@ -1,5 +1,5 @@
 body {
-	width: 100%;
+	width: 750px;
 	height: 100%;
 	background-color: #00926a;
 }
@@ -67,7 +67,6 @@ body {
 	width: 100%;
 }
 .time {
-	/*background-color: #0e786a;*/
 	position: relative;
 	text-align: center;
 	margin-top: -60px;
@@ -108,6 +107,7 @@ body {
 	color: #fff;
 	position: relative;
 	z-index: 1;
+	overflow: hidden;
 }
 .intro > * {
 }
