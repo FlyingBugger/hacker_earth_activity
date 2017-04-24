@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<form class="register">
+	<label>
+		姓名
+		<input class="form-control" name='name'></input>
+	</label>
+	<label>
+		电子邮箱
+		<input class="form-control" name='email' type='email'></input>
+	</label>
+	<label>
+		QQ号
+		<input class="form-control" name='qq'></input>
+	</label>
+	<button class="btn" type='submit'>报名</button>
+</form>
+{% endblock %}

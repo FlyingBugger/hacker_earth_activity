@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	{% include "headers.html" %}
+	{% block headers %}{% endblock %}
+</head>
+<body class="">
+{% include "templates.html" %}
+
+{% block content %}{% endblock %}
+
+{% include "dependencies.html" %}
+{% block additional_js %}{% endblock %}
+</body>
+</html>
