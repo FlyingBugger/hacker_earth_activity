@@ -15,6 +15,7 @@ body {
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	z-index: 1;
 }
 
 .caps-1 {
@@ -49,6 +50,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	line-height: 71px;
+	overflow: hidden;
 }
 .shout-container {
 	margin-left: auto;
@@ -98,6 +100,10 @@ body {
 	padding-left: 40px;
 	padding-right: 40px;
 	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+.intro > * {
 }
 .section-head {
 	width: 100%;
@@ -146,5 +152,35 @@ body {
 }
 .reference .qq {
 	margin-top: 30px;
-	color: #00926a;
+	color: #fff;
+}
+img.shadow-1 {
+	height: 784px;
+	position: absolute;
+	opacity: .8;
+	top: 440px;
+	transform: scaleX(-1) translateX(59%);
+	z-index: -1;
+}
+img.shadow-2 {
+	height: 521px;
+	position: absolute;
+	opacity: 1;
+	top: 1140px;
+	transform: translateX(145%);
+	z-index: -1;
+}
+div.shadow-oval {
+	width: 2200px;
+	height: 530px;
+	border-radius: 50%;
+	background-color: #108172;
+}
+div.cutoff {
+	z-index: -1;
+	position: absolute;
+	bottom: -100px;
+	left: -140px;
+	height: 460px;
+	overflow: hidden;
 }
