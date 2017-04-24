@@ -25,7 +25,6 @@ DATABASES = {
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
 MIDDLEWARE = PREREQ_MIDDLEWARE + PROJECT_MIDDLEWARE
 
-
-
+STATIC_ROOT = os.path.join(os.path.abspath(os.path.join(BASE_DIR,os.pardir,os.pardir)), "static/")
 
 MEDIA_ROOT = '/root/hacker_earth_activity/upload_assets'
