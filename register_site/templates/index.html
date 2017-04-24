@@ -2,19 +2,88 @@
 {% load staticfiles %}
 
 {% block content %}
-<form class="register">
-	<label>
-		姓名
-		<input class="form-control" name='name'></input>
-	</label>
-	<label>
-		电子邮箱
-		<input class="form-control" name='email' type='email'></input>
-	</label>
-	<label>
-		QQ号
-		<input class="form-control" name='qq'></input>
-	</label>
-	<button class="btn" type='submit'>报名</button>
-</form>
+
+<div class="caps-1">
+	<img class="cap" src='{% static "img/cap.png" %}'></img>
+	<div class="monkey-container">
+		<img class="monkey" src='{% static "img/monkey.png" %}'></img>
+	</div>
+	<div class="title"><strong>第一届大学生编程大赛</strong></div>
+</div>
+
+<div class="shout-container">
+	<img class="shout" src='{% static "img/shout.png" %}'></img>
+</div>
+
+<div class="time">
+	<p class="title">报名时间</p>
+	<p class="date">4月26日 - 5月10日</p>
+	<div class="trapezoid"></div>
+</div>
+
+<div class="intro">
+	<div class="section-head">
+		<h3 class="text">比赛介绍</h3>
+	</div>
+	<p class="content">
+	本次编程大赛是HEChina作为国际最大的IT专业测评、编程大赛举办平台在中国举办的第一次大赛，旨在为编程人才及爱好者提供编程交流的盛会，深度发掘编程人才的潜能。预计届时将有百余家知名高校的优秀学子，以及近万编程爱好者参与。组委会将为参赛团队提供优质平台与雄厚的资本支持，也为广大优秀人才提供待遇优厚的Offer及实习机会。
+	</p>
+
+	<div class="section-head">
+		<h3 class="text">比赛时间</h3>
+	</div>
+	<div class="content">
+		<p class="date">2017年5月13日</p>
+		<table class='time-table'>
+			<tbody>
+				<tr>
+					<td class='time-duration'>10:00-12:00</td>
+					<td class='agenda'>上半场</td>
+				</tr>
+				<tr>
+					<td class='time-duration'>12:00-12:30</td>
+					<td class='agenda'>中场休息 免费提供午餐</td>
+				</tr>
+				<tr>
+					<td class='time-duration'>12:30-14:30</td>
+					<td class='agenda'>下半场</td>
+				</tr>
+				<tr>
+					<td class='time-duration'>14:30-15:00</td>
+					<td class='agenda'>评审</td>
+				</tr>
+				<tr>
+					<td class='time-duration'>15:30</td>
+					<td class='agenda'>颁奖典礼</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="section-head">
+		<h3 class="text">比赛奖品</h3>
+	</div>
+	<div class="content">
+		<p class="prize">一等奖</p>
+		<p class="trophie">高端键鼠一套 (1300元)</p>
+		<p class="prize">二等奖</p>
+		<p class="trophie">耳机 (800元)</p>
+		<p class="prize">三等奖</p>
+		<p class="trophie">鼠标 (400元)</p>
+		<p class="prize">效率奖</p>
+		<p class="trophie">键盘 (400元)</p>
+		<p class="prize">特别奖</p>
+	</div>
+
+	<div class="reference">
+		<p class="role">主办单位</p>
+		<p class="inst">HackerEarth China</p>
+		<p class="role">承办方</p>
+		<p class="inst">电子科大计算机学院 TCL创意俱乐部</p>
+		<p class="qq">大赛讨论QQ群: 608623743</p>
+	</div>
+</div>
+
+<button class="btn-signup">立即报名</button>
+
 {% endblock %}
