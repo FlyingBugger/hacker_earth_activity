@@ -22,6 +22,8 @@ $(function () {
 		$('.inst').addClass("android_reference_big")
 		$('.qq').addClass("android_reference_big")
 		$('.btn-signup').addClass("android_register_now")
+		$('form.form-container > input').addClass("android_input")
+		$('form.form-container > button').addClass("android_button_register")
 	}
 })
 
