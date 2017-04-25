@@ -9,8 +9,9 @@ body {
 	background-color: #108172;
 
 	font-size: 1.5rem;
-  	line-height: 1.6;
+  	line-height: 1.4;
     -webkit-font-smoothing: antialiased;
+    font-weight: 500;
 }
 
 .btn-signup {
@@ -79,11 +80,10 @@ body {
 .time {
 	position: relative;
 	text-align: center;
-	margin-top: -60px;
+	margin-top: -70px;
 	width: 100%;
 	padding-top: 65px;
-	height: 200px;
-	background-color: #00926a;
+	height: 160px;
 }
 .time > p {
 	color: #fff100;
@@ -93,22 +93,22 @@ body {
 	z-index: 10;
 }
 .time > .title {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	height: auto;
 	width: 100%;
-	top: 20%;
+	top: 6%;
 	font-weight: 400;
 }
 .time > .date {	
-	font-size: 2.2rem;
+	font-size: 2rem;
 	width: 100%;
-	bottom: 10%;
+	bottom: 15%;
 	font-weight: 500;
 }
 .trapezoid {
-	border-bottom: 200px solid #0e786a;
+	border-bottom: 160px solid #0e786a;
 	border-left: 207px solid transparent;
-	border-right: 207px solid transparent;
+	border-right: 215px solid transparent;
 	width: 100%;
 	position: absolute;
 	top: 0;
@@ -154,13 +154,13 @@ body {
 .intro .content {
 	color: #fff;
 	padding: 66px 14px;
-	font-weight: 100;
+	font-weight: 300;
 }
 .time-table .time-duration {
 	width: 205px;
 }
 .reference {
-	color: #fff;
+	color: #fff !important;
 	text-align: center;
 	padding: 60px;
 	font-size: 1.5rem;
@@ -288,3 +288,16 @@ button.back {
 	margin-top: 20px;
 	text-align: center;
 }
+
+@media screen and (max-width: 320px){
+	.reference { font-size: 1.2rem; line-height: 1.6rem;font-weight: 300;}
+	.reference .qq {margin-top: 15px;}
+
+
+
+
+
+}
+
+
+
