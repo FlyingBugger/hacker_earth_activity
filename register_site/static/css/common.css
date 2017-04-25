@@ -11,8 +11,33 @@ body {
 	font-size: 1.5rem;
   	line-height: 1.4;
     -webkit-font-smoothing: antialiased;
-    font-weight: 500;
+    font-weight: 400;
 }
+.android_body{
+	font-size: 3rem;
+  	line-height: 1.7;
+  	font-weight: 300;
+}
+.android_text{
+	font-size: 4rem !important;
+}
+.android_text_time{
+	font-size: 4.5rem !important;
+	font-weight: 600;
+	bottom: 5% !important;
+}
+.android_reference_small{
+	font-size: 2.3rem !important;
+	line-height: 1.2;
+}
+.android_reference_big{
+	font-size: 2.7rem !important;
+	line-height: 1.5;
+}
+.android_register_now{
+	font-size: 4rem !important;
+}
+
 .monkey_and_time{
 	background-color: #00926a;
 }
@@ -63,7 +88,7 @@ body {
 	width: 574px;
 	height: 71px;
 	color: #fff;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	background-color: #107769;
 	text-align: center;
 	margin-left: auto;
@@ -85,7 +110,7 @@ body {
 	margin-top: -70px;
 	width: 100%;
 	padding-top: 65px;
-	height: 160px;
+	height: 158px;
 }
 .time > p {
 	color: #fff100;
@@ -120,7 +145,7 @@ body {
 	background-color: #0f6f62;
 	width: 100%;
 	margin-bottom: 100px;
-	padding-top: 188px;
+	padding-top: 100px;
 	padding-left: 40px;
 	padding-right: 40px;
 	color: #fff;
@@ -137,7 +162,6 @@ body {
 .section-head > .text {
 	height: 66px;
 	color: #fff;
-	font-size: 2.25rem;
 	background-color: #118b7a;
 	text-align: center;
 	line-height: 66px;
