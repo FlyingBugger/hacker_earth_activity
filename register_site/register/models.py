@@ -1,9 +1,10 @@
 #-*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
-from django.db import models
 
-# Create your models here.
+from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from rest_framework import serializers
 
 app_label = 'register'
@@ -31,6 +32,12 @@ class RegisterMessage(models.Model):
 	grade = models.CharField('年级', max_length=2, choice=GRADES)
 	major = models.CharField(max_length=20)
 	register_date = models.DateTimeField(auto_now_add=True)
+
+	def save(self, *args, **kwargs):
+		if RegisterMessage.objects.count() < settings.MAX_CAPACITY:
+			super(RegisterMessage, self).save(*args, **kwargs)
+			return
+		raise ValidationError("数量超出最大限制, 创建失败")
 
 	def __str__(self):
 		return self.name
