@@ -271,15 +271,16 @@ form.form-container > input {
 	background-color: transparent;
 	border-bottom: 1px solid #fff;
 	color: #fff;
-	padding: 48px 12px;
+	margin: 20px 12px;
 }
 form.form-container > select {
+	height: 50px;
 	font-size: 1.5rem;
 	background-color: transparent;
 	border: none;
 	border-bottom: 1px solid #fff;
-	color: #ddd;
-	padding: 48px 12px;
+	color: #fff;
+	margin: 20px 12px;
 	width: 100%;
 }
 
