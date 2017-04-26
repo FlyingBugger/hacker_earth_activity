@@ -27,8 +27,8 @@ class RegisterMessage(models.Model):
 	email = models.EmailField(null=False)
 	qq = models.CharField(max_length=12, null=True, blank=True)
 	language = models.CharField(max_length=12, blank=True, null=True)
-	campus = models.CharField(max_length=1, choice=CAMPUS_CHOICE)
-	grade = models.CharField('年级', max_length=2, choice=GRADES)
+	campus = models.CharField(max_length=1, choices=CAMPUS_CHOICE)
+	grade = models.CharField('年级', max_length=2, choices=GRADES)
 	major = models.CharField(max_length=20)
 	register_date = models.DateTimeField(auto_now_add=True)
 

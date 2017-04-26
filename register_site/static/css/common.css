@@ -85,10 +85,10 @@ body {
 	width: 100%;
 }
 .title {
-	width: 574px;
+	width: 650px;
 	height: 71px;
 	color: #fff;
-	font-size: 2rem;
+	font-size: 2.2rem;
 	background-color: #107769;
 	text-align: center;
 	margin-left: auto;
@@ -97,9 +97,16 @@ body {
 	overflow: hidden;
 }
 .shout-container {
-	background-color: #00926a;
-	padding-left: 15px;
-	padding-right: 15px;
+	height: 120px;
+	width: 650px;
+	margin: auto;
+}
+.trapezoid_top{
+	border-top: 50px solid #118b7a;
+	
+	border-left: 155px solid transparent;
+	border-right: 155px solid transparent;
+	width: 100%;
 }
 .shout {
 	width: 100%;
@@ -110,14 +117,16 @@ body {
 	margin-top: -70px;
 	width: 100%;
 	padding-top: 65px;
-	height: 158px;
+	height: 220px;
+	overflow: hidden;
 }
 .time > p {
-	color: #fff100;
+	color: #fff;
 	background-color: transparent;
 	margin-bottom: 10px;
 	position: absolute;
 	z-index: 10;
+	
 }
 .time > .title {
 	font-size: 1.6rem;
@@ -129,16 +138,27 @@ body {
 .time > .date {	
 	font-size: 2rem;
 	width: 100%;
-	bottom: 15%;
+	vertical-align: middle;
 	font-weight: 500;
 }
+.time > .limit{
+	font-size: 1.4rem;
+	width: 100%;
+	bottom: 15%;
+	font-weight: 400;
+	color: #fff100;
+	bottom: 15%;
+}
+
 .trapezoid {
-	border-bottom: 160px solid #0e786a;
-	border-left: 207px solid transparent;
-	border-right: 215px solid transparent;
+	border-bottom: 220px solid #0e786a;
+	border-left: 275px solid transparent;
+	border-right: 275px solid transparent;
 	width: 100%;
 	position: absolute;
 	top: 0;
+	left: -10%;
+	width: 120%;
 }
 
 .intro {
@@ -155,6 +175,13 @@ body {
 }
 .intro > * {
 }
+
+
+.logo{
+	padding-top: 20px;
+}
+
+
 .section-head {
 	width: 100%;
 	font-size: 0;
