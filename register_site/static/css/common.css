@@ -273,11 +273,22 @@ form.form-container > input {
 	color: #fff;
 	padding: 48px 12px;
 }
+form.form-container > select {
+	font-size: 1.5rem;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+	color: #ddd;
+	padding: 48px 12px;
+	width: 100%;
+}
+
 .android_input{
 	font-size: 3rem !important;
 }
 
-form.form-container > input.error {
+form.form-container > input.error,
+form.form-container > select.error {
 	color: red;
 	border-color: red;
 }
@@ -327,6 +338,19 @@ form.form-container > button {
 	margin-top: 120px;
 	border-radius:45px;
 }
+
+.choices_input{
+	position: relative;
+}
+
+.choices{
+	/*z-index: 100;
+	position: absolute;
+	left: 0;
+	top: 0;*/
+
+}
+
 .android_button_register{
 	font-size:4rem !important;
 }

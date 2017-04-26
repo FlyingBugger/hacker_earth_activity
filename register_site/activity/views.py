@@ -18,6 +18,8 @@ def signup_page(request):
 @api_view(['POST'])
 def post_message(request):
 	data = request.data
+	import json
+	print json.dumps(data, indent=2)
 	serializer = RegisterMessageSerializer(data=data)
 	if serializer.is_valid():
 		register_message = serializer.create(serializer.validated_data)

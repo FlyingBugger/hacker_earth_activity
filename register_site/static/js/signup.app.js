@@ -19,7 +19,7 @@ $(function () {
 				console.log('success')
 				console.log(res)
 				$('p.msg').show()
-				setTimeout(function () {window.location.href = '/'}, 1000)
+				// setTimeout(function () {window.location.href = '/'}, 1000)
 			},
 			error: function (xhr) {
 				console.log('failed')
@@ -29,9 +29,10 @@ $(function () {
 				}
 				let json = xhr.responseJSON
 				
-				for (let i of ['email', 'phone', 'name', 'qq']) {
+				for (let i of ['email', 'phone', 'name', 'grade', 'campus']) {
 					if (json[i]) {
-						$('input[name={0}]'.format(i)).toggleClass('error')
+						console.log(i)
+						$('[name={0}]'.format(i)).toggleClass('error')
 					}
 				}
 			}

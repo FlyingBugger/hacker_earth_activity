@@ -6,7 +6,7 @@
 <div class="back">
 	<img src="{% static 'img/close.png' %}">
 </div>
-<form class="form-container row" action='/post_message/' method='post'>
+<form class="form-container row" action='/post_message/' method='post' name="register_form">
 	{% csrf_token %}
 	<input class="col-xs-12" name='name' placeholder="姓名"></input>
 
@@ -18,15 +18,30 @@
 
 	<input class="col-xs-12" name='language' placeholder="编程语言"></input>
 
-	<input class="col-xs-12" name='campus' placeholder="校区"></input>
+	<!-- <input class="col-xs-12 choices_input" name='campus' id="campus" placeholder="校区" readonly="readonly"/> -->
+	<!-- <select class="choices" onChange="document.register_form.campus.value=this.options[this.selectedIndex].value">  -->
+	<select class="choices" name="campus">
+		<option selected="selected">请选择校区</option> 
+		<option value="q">清水河校区</option> 
+		<option value="s">沙河校区</option>
+	</select> 
+		
 
-	<input class="col-xs-12" name='grade' placeholder="年级"></input>
+	<select class="choices" name="grade">
+		<option selected="selected">请选择年级</option> 
+		<option value="f">大学一年级</option> 
+		<option value="sf">大学二年级</option> 
+		<option value="j">大学三年级</option> 
+		<option value="sn">大学四年级</option> 
+		<option value="m">研究生</option> 
+	</select> 
 
 	<input class="col-xs-12" name='major' placeholder="专业"></input>
 
 	<button class="submit" type='submit'>报名</button>
 
 	<p class="msg">报名成功!</p>
+
 </form>
 
 {% endblock %}
