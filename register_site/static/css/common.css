@@ -245,17 +245,17 @@ img.shadow-2 {
 	z-index: -1;
 }
 div.shadow-oval {
-	width: 2200px;
-	height: 530px;
+	width: 3200px;
+	height: 900px;
 	border-radius: 50%;
 	background-color: #108172;
 }
 div.cutoff {
 	z-index: -1;
 	position: absolute;
-	bottom: -100px;
-	left: -140px;
-	height: 460px;
+	bottom: -250px;
+	left: -150px;
+	/*height: 460px;*/
 	overflow: hidden;
 }
 
