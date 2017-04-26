@@ -1,7 +1,7 @@
 $(function () {
 	$('p.msg').hide()
 
-	$('button.back').click(function () {
+	$('.back').click(function () {
 		window.location.href = '/'
 	})
 

@@ -3,8 +3,9 @@
 
 {% block content %}
 
-<button class="back">X</button>
-
+<div class="back">
+	<img src="{% static 'img/close.png' %}">
+</div>
 <form class="form-container row" action='/post_message/' method='post'>
 	{% csrf_token %}
 	<input class="col-xs-12" name='name' placeholder="姓名"></input>
