@@ -31,7 +31,6 @@ $(function () {
 				
 				for (let i of ['email', 'phone', 'name', 'grade', 'campus']) {
 					if (json[i]) {
-						console.log(i)
 						$('[name={0}]'.format(i)).toggleClass('error')
 					}
 				}
