@@ -28,7 +28,11 @@ $(function () {
 		$('.msg').addClass("android_msg")
 		$('.time > .limit').addClass("android_limit")
 		$('.time > .date').addClass("android_date")
+		$('.msg > p').css('font-size', "2.8rem")
+		$('.msg > p:first-child').css('font-size', "3.2rem")
+		$('.msg > button').addClass("android_button_register")
 	}
+
 })
 
 

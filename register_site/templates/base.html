@@ -2,11 +2,14 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>{% block title %}{% endblock %}</title>
+	<title>{% block title %}HE China大学生IT人才求职体验沙龙{% endblock %}</title>
 	{% include "headers.html" %}
 	{% block headers %}{% endblock %}
 </head>
 <body>
+<div class="invisible">
+	<img src="{% static 'img/logo1.jpg' %}">
+</div>
 {% include "templates.html" %}
 
 {% block content %}{% endblock %}

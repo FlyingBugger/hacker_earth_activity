@@ -1,5 +1,5 @@
 $(function () {
-	$('p.msg').hide()
+	$('.msg').hide()
 
 	$('.back').click(function () {
 		window.location.href = '/'
@@ -18,7 +18,7 @@ $(function () {
 			success: function (res) {
 				console.log('success')
 				console.log(res)
-				$('p.msg').show()
+				$('.msg').show()
 				// setTimeout(function () {window.location.href = '/'}, 1000)
 			},
 			error: function (xhr) {
@@ -36,5 +36,9 @@ $(function () {
 				}
 			}
 		})
+	})
+
+	$('.msg .btn').click(function () {
+		window.location.href = "/"
 	})
 })
