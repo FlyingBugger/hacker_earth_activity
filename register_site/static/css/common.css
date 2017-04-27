@@ -141,13 +141,20 @@ body {
 	vertical-align: middle;
 	font-weight: 500;
 }
+.android_date{
+	bottom: 33% !important;
+}
 .time > .limit{
 	font-size: 1.4rem;
 	width: 100%;
 	bottom: 15%;
 	font-weight: 400;
 	color: #fff100;
-	bottom: 15%;
+	bottom: 18%;
+}
+.android_limit{
+	font-size: 3rem !important;
+	bottom: 18% !important;
 }
 
 .trapezoid {
@@ -159,6 +166,7 @@ body {
 	top: 0;
 	left: -10%;
 	width: 120%;
+	bottom: 0;
 }
 
 .intro {

@@ -26,6 +26,8 @@ $(function () {
 		$('form.form-container > select').addClass("android_input")
 		$('form.form-container > button').addClass("android_button_register")
 		$('.msg').addClass("android_msg")
+		$('.time > .limit').addClass("android_limit")
+		$('.time > .date').addClass("android_date")
 	}
 })
 
