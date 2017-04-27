@@ -2,10 +2,9 @@
 html {
   font-size: 62.5%;
 }
-.invisible {
-	height: 0;
-	opacity: 0;
-	width: 0;
+.noshow {
+	position: absolute;
+	top: -1000px;
 }
 
 body {
