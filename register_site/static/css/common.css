@@ -264,24 +264,15 @@ div.cutoff {
 	padding: 10%;
 }
 
-form.form-container > input {
+form.form-container > input ,form.form-container > select{
 	height: 50px;
 	font-size: 1.5rem;
 	border: none;
 	background-color: transparent;
 	border-bottom: 1px solid #fff;
 	color: #fff;
-	margin: 20px 12px;
-}
-form.form-container > select {
-	height: 50px;
-	font-size: 1.5rem;
-	background-color: transparent;
-	border: none;
-	border-bottom: 1px solid #fff;
-	color: #fff;
-	margin: 20px 12px;
 	width: 100%;
+	margin: 20px 0 15px 0;
 }
 
 .android_input{
