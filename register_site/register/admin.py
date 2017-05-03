@@ -7,6 +7,6 @@ from .models import RegisterMessage
 
 @admin.register(RegisterMessage)
 class RegisterMessageAdmin(admin.ModelAdmin):
-	list_display = ('name', 'phone', 'email','register_date')
+	list_display = ('name', 'phone', 'email','grade','campusq','register_date')
 
 
