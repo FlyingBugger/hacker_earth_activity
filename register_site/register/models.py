@@ -31,6 +31,9 @@ class RegisterMessage(models.Model):
 	campus = models.CharField(max_length=1, choices=CAMPUS_CHOICE)
 	grade = models.CharField('年级', max_length=2, choices=GRADES, null=True, blank=True)
 	major = models.CharField(max_length=20, blank=True)
+	team_size = models.IntegerField(default=1, choices=[(1, 1), (2, 2)])
+	teammate = models.CharField(max_length=30, blank=True, null=True)
+	teammate_phone = models.CharField(max_length=11, blank=True, null=True)
 	register_date = models.DateTimeField(auto_now_add=True)
 
 	def save(self, *args, **kwargs):

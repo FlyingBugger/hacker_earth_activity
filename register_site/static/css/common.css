@@ -276,7 +276,17 @@ div.cutoff {
 	padding: 10%;
 }
 
-form.form-container > input ,form.form-container > select{
+form.form-container > span {
+	/*height: 50px;*/
+	font-size: 1.5rem;
+	border: none;
+	background-color: transparent;
+	color: #fff;
+	width: 100%;
+	/*margin: 20px 0 15px 0;*/
+}
+
+form.form-container > input ,form.form-container > select {
 	height: 50px;
 	font-size: 1.5rem;
 	border: none;
@@ -393,11 +403,6 @@ form.form-container > button,
 @media screen and (max-width: 320px){
 	.reference { font-size: 1.2rem; line-height: 1.6rem;font-weight: 300;}
 	.reference .qq {margin-top: 15px;}
-
-
-
-
-
 }
 
 
