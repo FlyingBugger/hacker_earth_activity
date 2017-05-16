@@ -1,4 +1,7 @@
 # coding=utf-8
+import os
+
+import sys
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework import response
@@ -45,7 +48,11 @@ def get_certificate(request, code):
 	for winner in Winner.objects.all():
 		if code == winner.code:
 			certificate = winner.certificate
-			with open(settings.MEDIA_ROOT + certificate.name) as pdf:
+			file_name = certificate.name
+			path = os.path.join(settings.MEDIA_ROOT, file_name)
+			path = path.encode(sys.getfilesystemencoding())
+
+			with open(path) as pdf:
 				response = HttpResponse(pdf.read(), content_type='application/pdf')
 				response['Content-Disposition'] = u'filename={}_certificate.pdf'.format(winner.name)
 				return response
