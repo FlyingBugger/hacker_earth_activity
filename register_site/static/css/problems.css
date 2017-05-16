@@ -1,0 +1,47 @@
+body {
+	width: 100%;
+}
+.center {
+	text-align: center;
+}
+h1, p, h2, h3 {
+	color: #fff !important;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+section.problem {
+	width: 100%;
+	padding-left: 4rem;
+	padding-right: 4rem;
+	background-color: #107769;
+	padding-bottom: 4rem;
+}
+
+h3.title {
+	font-size: 2rem !important;
+	width: auto;
+	height: auto;
+	background-color: transparent;
+}
+
+p.statement {
+	font-size: 1.5rem;
+}
+.section-title {
+	font-size: 1.5rem;
+}
+.sample p.text {
+	font-size: 1.4rem !important;
+}
+
+.link {
+	font-size: 1.4rem;
+	color: #fff;
+	text-decoration: underline;
+}
+.link:hover {
+	color: #ddd;
+}

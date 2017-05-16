@@ -1,6 +1,8 @@
 #-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import hashlib
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -50,3 +52,26 @@ class RegisterMessageSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = RegisterMessage
 		fields = "__all__"
+
+
+@python_2_unicode_compatible
+class Winner(models.Model):
+	name = models.CharField(max_length=30, null=False)
+	phone = models.CharField(max_length=11, null=False)
+	email = models.EmailField(null=False)
+	qq = models.CharField(max_length=20, null=True, blank=True)
+	language = models.CharField(max_length=12, blank=True, null=True)
+	campus = models.CharField(max_length=1, choices=CAMPUS_CHOICE)
+	grade = models.CharField('年级', max_length=2, choices=GRADES, null=True, blank=True)
+	major = models.CharField(max_length=20, blank=True)
+	prize = models.CharField(max_length=1, choices=[('1', '第一名'), ('2', '第二名'), ('3', '第三名'), ('x', '效率奖')])
+	certificate = models.FileField()
+
+	def __str__(self):
+		return self.name
+
+
+	@property
+	def code(self):
+		text = self.phone + self.prize
+		return hashlib.md5(text).hexdigest()[:6]

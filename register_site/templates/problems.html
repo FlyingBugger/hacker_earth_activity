@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block headers %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/problems.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class='center'>体验题目</h1>
+
+<section class="problem">
+	<h3 class="title">字符串压缩</h3>
+	<p class="statement">
+		很多时候我们会面临字符串压缩问题, 即为在不丢失数据的前提下将冗长的字符串压缩到更短的长度. <br>
+		现给出一套压缩算法: 在字符串中将所有连续相同字母(不区分大小写)压缩为一个字母与重复次数, 当重复次数为1时省略数字1.
+	</p>
+
+	<div class="sample row">
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输入</h3>
+			<p class="text">AAAAABBBBBBBBdde</p>
+		</div>
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输出</h3>
+			<p class="text">A5B8d2e</p>
+		</div>
+		<div class="col-xs-12">
+			<h3 class="section-title">样例说明</h3>
+			<p class="text">
+				压缩前: AAAAABBBBBBBBdde
+				<br>
+				压缩后: A5B8d2e
+			</p>
+		</div>
+	</div>
+
+	<a class='link' href="{% static 'data/string.zip' %}">测试数据</a>
+</section>
+
+<section class="problem">
+	<h3 class="title">整理书本</h3>
+	<p class="statement">
+		有一个房间, 地上摆满了各式的书本. 书本分为了<strong>n</strong>类, 每类书各有<strong>a[n]</strong>本, 每本书厚度相同. 现在我们需要整理这个房间, 将书本叠起来, 要求每一叠中所有的书本类型是相同的, 并且所有叠的高度需要一样. 要达到这样的要求, 每叠需要放多少本书?
+		<br>
+<strong>输入</strong>   <br>
+	第一行给出书本类型数量**N**, 第二行给出**N**个数字, 第i个数字表示第i类书有多少本 (<strong>a[n]</strong>).
+<br>
+<strong>输出</strong>   <br>
+单独一行, 打印出一个数字, 表示叠好后的每叠书需要放多少本书. 注意每叠书必须是相同类型的.
+<br>
+<strong>约束</strong>   <br>
+1<=N<=10<br>
+1<=a[i]<=100000  <br>
+
+若答案不唯一, 则输出数字最大的.
+	</p>
+
+	<div class="sample row">
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输入</h3>
+			<p class="text">
+				3 <br>
+				84 90 120
+			</p>
+		</div>
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输出</h3>
+			<p class="text">6</p>
+		</div>
+		<div class="col-xs-12">
+			<h3 class="section-title">样例说明</h3>
+			<p class="text">
+				14叠种类0, 15叠种类1, 20叠种类2的书, 每一叠6本书.
+			</p>
+		</div>
+	</div>
+
+	<a class='link' href="{% static 'data/books.zip' %}">测试数据</a>
+</section>
+
+<section class="problem">
+	<h3 class="title">摧毁矩阵</h3>
+	<p class="statement">
+		给出一个 <var>N * M</var> 的矩阵, 矩阵中的元素为 <var>1-9</var> 的整数. 你的任务是摧毁这个矩阵. 你可以选择任意一行开始, 每摧毁一行中的某个元素, 该元素所在列也跟着一起被摧毁. 但矩阵中的每一行都至少应该被选择一次. 摧毁一列时的代价为你选择的元素的值, 现要求以最小的代价摧毁整个矩阵.
+		<br>
+		<b>限制</b>
+		<br>
+		<var>1 ≤ N ≤ 5</var>
+		<br>
+		<var>1 ≤ M ≤ 10<sup>5</sup> </var>
+		<br>
+		<var>1 ≤ Matrix[i][j] ≤ 9</var>
+		<br>
+		<strong>输入格式</strong>
+		<br>
+		第一行: M和N, 用空格隔开. <br>
+		接下来N行: M个以空格隔开的整数, 用以描述矩阵. <br>
+		<strong>输出格式</strong> <br>
+		输出最小代价
+	</p>
+
+	<div class="sample row">
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输入</h3>
+			<p class="text">
+			5 3 <br>
+			1 1 1 1 1 <br>
+			2 2 2 2 2 <br>
+			3 3 3 3 3
+			</p>
+		</div>
+		<div class="col-sm-6">
+			<h3 class="section-title">样例输出</h3>
+			<p class="text">8</p>
+		</div>
+		<div class="col-xs-12">
+			<h3 class="section-title">样例说明</h3>
+			<p class="text">
+				摧毁第1行的1, 2, 3号元素, 接着是第2行的4号元素, 最后是第5行的5号元素.
+				代价 = 1 + 1 + 1 + 2 + 3 = 8
+			</p>
+		</div>
+	</div>
+
+	<a class='link' href="{% static 'data/matrix.zip' %}">测试数据</a>
+</section>
+
+{% endblock %}
+
+{% block additional_js %}
+<script type="text/javascript">
+$(function () {
+	$('html').css('zoom', 1)
+})
+</script>
+{% endblock %}

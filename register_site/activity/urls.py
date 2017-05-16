@@ -22,6 +22,9 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
+    url(r'^poster', views.poster_page),
     url(r'^signup', views.signup_page),
+    url(r'^problems', views.problems_page),
+	url(r'^verify/(?P<code>\w+)', views.get_certificate),
     url(r'^post_message\/?$',views.post_message),
 ]
