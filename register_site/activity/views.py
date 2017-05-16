@@ -1,15 +1,13 @@
 # coding=utf-8
 import os
-
 import sys
+
 from django.http.response import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render, redirect, get_object_or_404
-from rest_framework import response
+from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from activity.utils import encrypt
 from register.models import *
 
 
@@ -50,8 +48,6 @@ def get_certificate(request, code):
 			certificate = winner.certificate
 			file_name = certificate.name
 			path = os.path.join(settings.MEDIA_ROOT, file_name)
-			path = path.encode(sys.getfilesystemencoding())
-
 			with open(path) as pdf:
 				response = HttpResponse(pdf.read(), content_type='application/pdf')
 				response['Content-Disposition'] = u'filename={}_certificate.pdf'.format(winner.name)
