@@ -1,5 +1,6 @@
 PROJECT_APPS = [
     'register.apps.RegisterConfig',
+    'software_park.apps.SoftwareParkConfig',
 ]
 
 PROJECT_MIDDLEWARE = [
