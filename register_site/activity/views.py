@@ -12,7 +12,7 @@ from register.models import *
 
 
 def index(request):
-	return redirect('/problems')
+	return render (request, "index.html")
 
 
 def problems_page(request):
