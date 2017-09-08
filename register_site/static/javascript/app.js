@@ -2,8 +2,8 @@
 'use strict';
 // var host = 'https://www.hackerearth.cn/';
 
-var host='http://192.168.32.31:8101/';
-var rout_host='192.168.32.31:8101/'
+var host='http://salon.hackerearth.cn/';
+var rout_host='salon.hackerearth.cn/'
 var API_root = '';
 var API_host = host + API_root;
 
