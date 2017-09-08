@@ -180,6 +180,15 @@ input {
   z-index: 999;
 }
 
+.share-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
 @media (min-width: 1024px) {
   .fixed-item {
     width: 1024px;
