@@ -31,6 +31,7 @@ $(function () {
      */
     Util.dispatcher('.', function () {
         Page.all.init();
+        Page.top.init();
     });
 
     /*
@@ -39,7 +40,7 @@ $(function () {
     if (pathname == Route.top) {
         Util.dispatcher(Route.top, function () {
             Config.currentPage = Route.top;
-            Page.top.init();
+
         });
 
     } else if (pathname == Route.form) {
