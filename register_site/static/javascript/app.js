@@ -425,7 +425,7 @@ Page.top = (function () {
     };
     var bind = function () {
         $('.btn-action').click(function () {
-            window.location.href ='/get_form';
+            window.location.href ='http://salon.hackerearth.cn/get_form';
         });
 
         Util.form_submit();
