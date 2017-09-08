@@ -274,14 +274,6 @@ Check.verify_item = function (key, value, callback) {
       return callback(Consist.msg.longest('公司名称', 40))
     }
   }
-  if (key === 'phone') {
-    if (value.length > 11) {
-      return callback(Consist.msg.longest('电话', 11))
-    }
-    if (!Check.number(value)) {
-      return callback(Consist.msg.phone)
-    }
-  }
 
   if (key === 'jobtitle') {
     if (value.length > 15) {
