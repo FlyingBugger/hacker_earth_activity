@@ -12,7 +12,7 @@ from register.models import *
 
 
 def index(request):
-	return render (request, "index.html")
+	return render (request, "moc/index.html")
 
 
 def problems_page(request):
