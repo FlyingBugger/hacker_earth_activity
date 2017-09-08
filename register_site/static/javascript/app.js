@@ -2,7 +2,7 @@
 'use strict';
 // var host = 'https://www.hackerearth.cn/';
 
-var host='http://localhost:3000/';
+var host='http://localhost:8101/';
 
 var API_root = 'index';
 var API_host = host + API_root;
@@ -16,8 +16,8 @@ var Page = App.Page = {};
 var Check = App.Check = {};
 
 var Route = App.Route = {
-    top: 'index.html',
-    form: 'form.html'
+    top: '0.0.0.0:8101/',
+    form: 'get_form'
 };
 
 /*
@@ -25,7 +25,7 @@ var Route = App.Route = {
  */
 $(function () {
     var pathname = window.location.href.match(".+/(.+?)([\?#;].*)?$")[1];
-
+    console.log(pathname)
     /*
      * all
      */
@@ -294,8 +294,8 @@ Check.verify = function ($dom) {
   $("#" + key).val(value);
 
   if (key === 'email') {
-    if (value.length > 10) {
-      Util.alert.danger(Consist.msg.longest('邮箱', 10))
+    if (value.length > 100) {
+      Util.alert.danger(Consist.msg.longest('邮箱', 100))
       return false;
     }
     if ($("#" + key).val === '' && !Check.email(value)) {
@@ -357,22 +357,22 @@ Util.form_submit = function () {
     }
     option.csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
 
-    // Api.form.submit(option)
-    //   .done(function (_data) {
-    //     if (_data.status == '200') {
+     Api.form.submit(option)
+       .done(function (_data) {
+         if (_data.status == '200') {
           Util.modal();
-    //     Util.input.clear(option);
-    //   }
-    // })
-    // .fail(function (err_msg, error) {
-    //   if (err_msg.status == '400') {
-    //     for (var key in err_msg.responseJSON){
-    //      Util.alert.danger(err_msg.responseJSON[key]);
-    //     }
-    //
-    //   }
-    //   console.log(err_msg);
-    // });
+         Util.input.clear(option);
+       }
+     })
+     .fail(function (err_msg, error) {
+       if (err_msg.status == '400') {
+         for (var key in err_msg.responseJSON){
+          Util.alert.danger(err_msg.responseJSON[key]);
+         }
+
+       }
+       console.log(err_msg);
+     });
 
   });
 
@@ -429,7 +429,7 @@ Page.top = (function () {
     };
     var bind = function () {
         $('.btn-action').click(function () {
-            window.location.href ='form.html';
+            window.location.href ='/get_form';
         });
 
         Util.form_submit();

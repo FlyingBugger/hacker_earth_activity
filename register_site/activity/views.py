@@ -14,6 +14,9 @@ from register.models import *
 def index(request):
 	return render (request, "moc/index.html")
 
+def get_form(request):
+	return render (request, "moc/form.html")
+
 
 def problems_page(request):
 	return render(request, 'problems.html')

@@ -32,7 +32,7 @@
         <h1 class="bottom-text">一体化新生态系统</h1>
       </div>
       <form id="form_item" class="form-item" name="form_item" method="post" enctype=”multipart/form-data”>
-        <!--{% csrf_token %}--><input type="text" title="name" name="name" id="name" placeholder="姓名" onfocus="this.placeholder=''" onblur="this.placeholder='姓名'" class="input-default form-control" autocomplete="off"> <input type="text" title="company" name="company" id="company"
+        {% csrf_token %}<input type="text" title="name" name="name" id="name" placeholder="姓名" onfocus="this.placeholder=''" onblur="this.placeholder='姓名'" class="input-default form-control" autocomplete="off"> <input type="text" title="company" name="company" id="company"
           placeholder="公司名称" onfocus="this.placeholder=''" onblur="this.placeholder='公司名称'" class="input-default form-control" autocomplete="off"> <input type="text" title="phone" name="phone" id="phone" placeholder="电话" onfocus="this.placeholder=''" onblur="this.placeholder='电话'"
           class="input-default form-control" autocomplete="off"> <input type="text" title="position" name="jobtitle" id="jobtitle" placeholder="职位" onfocus="this.placeholder=''" onblur="this.placeholder='职位'" class="input-default form-control" autocomplete="off">        <input type="email" title="email" name="email" id="email" placeholder="邮箱(选填)" onfocus="this.placeholder=''" onblur="this.placeholder='邮箱(选填)'" class="input-default form-control" autocomplete="off">
         <div class="button-con">
