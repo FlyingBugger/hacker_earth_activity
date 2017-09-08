@@ -2,9 +2,9 @@
 'use strict';
 // var host = 'https://www.hackerearth.cn/';
 
-var host='http://localhost:8101/';
+var host='http://192.168.32.31:8101/';
 
-var API_root = 'index';
+var API_root = '';
 var API_host = host + API_root;
 
 var App = window.App = {};
