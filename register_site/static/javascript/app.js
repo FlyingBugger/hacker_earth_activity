@@ -3,7 +3,7 @@
 // var host = 'https://www.hackerearth.cn/';
 
 var host='http://192.168.32.31:8101/';
-
+var rout_host='192.168.32.31:8101/'
 var API_root = '';
 var API_host = host + API_root;
 
@@ -16,7 +16,7 @@ var Page = App.Page = {};
 var Check = App.Check = {};
 
 var Route = App.Route = {
-    top: '0.0.0.0:8101/',
+    top: rout_host,
     form: 'get_form'
 };
 
@@ -168,7 +168,11 @@ Util.modal = function () {
   $('.close-btn').click(function () {
     $('body').removeClass('no-scroll');
     $('.modal').addClass('hidden');
+    setTimeout(function(){
+    window.location.href="/"
+    },1000)
   })
+
 };
 
 Util.smooth_scroll = (function () {
