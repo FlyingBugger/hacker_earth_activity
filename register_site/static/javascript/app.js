@@ -25,7 +25,7 @@ var Route = App.Route = {
  */
 $(function () {
     var pathname = window.location.href.match(".+/(.+?)([\?#;].*)?$")[1];
-    console.log(pathname)
+//    console.log(pathname)
     /*
      * all
      */
@@ -375,7 +375,7 @@ Util.form_submit = function () {
          }
 
        }
-       console.log(err_msg);
+//       console.log(err_msg);
      });
 
   });
