@@ -13,27 +13,31 @@ from sign import *
 
 temp_ticket=""
 
-def GetWexinParams():
-	url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
-	temp=requests.get(url)
-	json=temp.json()
-	access_token=json["access_token"]
-	expires_in=json["expires_in"]
-	url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token={}".format(access_token)
-	temp=requests.get(url)
-	json=temp.json()
-	ticket=json["ticket"]
-	temp_ticket=ticket
-	temp_sign=Sign(jsapi_ticket=ticket,url="http://salon.hackerearth.cn/").sign()
+def GetWexinParams(p_ticket):
+
+	if p_ticket:
+		temp_sign = Sign (jsapi_ticket=p_ticket, url="http://salon.hackerearth.cn/").sign ()
+		print "++++"
+	else:
+		url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
+		temp=requests.get(url)
+		json=temp.json()
+		access_token=json["access_token"]
+		expires_in=json["expires_in"]
+		url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token={}".format(access_token)
+		temp=requests.get(url)
+		json=temp.json()
+		ticket=json["ticket"]
+		global temp_ticket
+		temp_ticket=ticket
+		temp_sign=Sign(jsapi_ticket=ticket,url="http://salon.hackerearth.cn/").sign()
+		print "-------{}".format(temp_sign)
 	return temp_sign
 
 
 
 def index(request):
-	if temp_ticket=='':
-		WEXIN_PARAMS=GetWexinParams()
-
-	print WEXIN_PARAMS
+	WEXIN_PARAMS = GetWexinParams (temp_ticket)
 	return render (request, "moc/index.html",WEXIN_PARAMS)
 
 def get_form(request):
