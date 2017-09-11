@@ -144,7 +144,7 @@
       </footer> <button class="btn fixed-item btn-action">立即报名参加</button> </main>
     <!--javascript-->
     <script type="text/javascript">
-        var url="{{url}}"
+        var url=decodeURI("{{url}}")
         var timestamp="{{timestamp}}"
         var nonceStr="{{nonceStr}}"
         var jsapi_ticket="{{jsapi_ticket}}"
