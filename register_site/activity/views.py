@@ -39,7 +39,7 @@ def GetWexinParams(p_ticket,full_url):
 def index(request):
 	host=request.get_host()
 	full_url=request.get_full_path()
-	url="http://"+host+full_url
+	url=host+full_url
 	print full_url
 	WEXIN_PARAMS = GetWexinParams (temp_ticket,url)
 	return render (request, "moc/index.html",WEXIN_PARAMS)
