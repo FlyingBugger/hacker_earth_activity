@@ -143,7 +143,12 @@
         <p class="copy-text">版权所有 © 2017 HackerEarth 中国</p>
       </footer> <button class="btn fixed-item btn-action">立即报名参加</button> </main>
     <!--javascript-->
-    <script type="text/javascript">
+
+
+    <script src="{% static 'javascript/vendor.js' %}"></script>
+    <script src="{% static 'javascript/app.js' %}"></script>
+
+        <script type="text/javascript">
         var url=decodeURI("{{url}}")
         var timestamp="{{timestamp}}"
         var nonceStr="{{nonceStr}}"
@@ -151,17 +156,20 @@
         var signature="{{signature}}"
 
         alert(location.href.split('#')[0])
-
-        wx.config({
+        $.ajax({
+          url:'http://salon.hackerearth.cn/get_wexin_params',
+          type:'get',
+          success:function(_data){
+            console.log(_data);
+             wx.config({
             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wxf699e63b171db08b', // 必填，公众号的唯一标识
-            timestamp: timestamp, // 必填，生成签名的时间戳
-            nonceStr: nonceStr, // 必填，生成签名的随机串
-            signature: signature,// 必填，签名，见附录1
+            timestamp: _data.timestamp, // 必填，生成签名的时间戳
+            nonceStr: _data.nonceStr, // 必填，生成签名的随机串
+            signature: _data.signature,// 必填，签名，见附录1
             jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQZone","onMenuShareQQ"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
-
-        wx.ready(function () {
+             wx.ready(function () {
           
           var title='沙龙邀请函'// 分享标题
           var desc='大数据时代“人才”+“创新”一体化新生态系统'
@@ -203,10 +211,12 @@
         })
 
 
-    </script>
+          }
+        })
 
-    <script src="{% static 'javascript/vendor.js' %}"></script>
-    <script src="{% static 'javascript/app.js' %}"></script>
+        
+
+    </script>
     
     <!--<script>-->
     <!--var _hmt = _hmt || [];-->
