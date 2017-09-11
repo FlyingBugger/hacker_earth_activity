@@ -15,7 +15,7 @@ temp_ticket=""
 
 def GetWexinParams(p_ticket):
 
-	if p_ticket:
+	if 0:
 		temp_sign = Sign (jsapi_ticket=p_ticket, url="http://salon.hackerearth.cn/").sign ()
 		print "++++"
 	else:
