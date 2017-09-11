@@ -13,10 +13,10 @@ from sign import *
 
 temp_ticket=""
 
-def GetWexinParams(p_ticket):
+def GetWexinParams(p_ticket,full_url):
 
 	if 0:
-		temp_sign = Sign (jsapi_ticket=p_ticket, url="http://salon.hackerearth.cn/").sign ()
+		temp_sign = Sign (p_ticket,full_url).sign ()
 		print "++++"
 	else:
 		url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
@@ -30,14 +30,16 @@ def GetWexinParams(p_ticket):
 		ticket=json["ticket"]
 		global temp_ticket
 		temp_ticket=ticket
-		temp_sign=Sign(ticket,"http://salon.hackerearth.cn").sign()
+		temp_sign=Sign(ticket,full_url).sign()
 		print "-------{}".format(temp_sign)
 	return temp_sign
 
 
 
 def index(request):
-	WEXIN_PARAMS = GetWexinParams (temp_ticket)
+	full_url=request.get_full_path()
+	print full_url
+	WEXIN_PARAMS = GetWexinParams (temp_ticket,full_url)
 	return render (request, "moc/index.html",WEXIN_PARAMS)
 
 def get_form(request):
