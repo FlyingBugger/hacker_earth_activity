@@ -168,6 +168,7 @@
           var desc='大数据时代“人才”+“创新”一体化新生态系统'
           var link='http://salon.hackerearth.cn/'
           var imageUrl='http://salon.hackerearth.cn/media/QQ20170911-150722copy.png'
+          
           wx.onMenuShareAppMessage({
              title: title,
              desc: desc, // 分享描述
@@ -182,18 +183,19 @@
              cancel: function () {
               // 用户取消分享后执行的回调函数
               console.log("取消分享")
-            });
+            }
+          })
 
 
           
-          });
+          
 
 
 
           wx.onMenuShareTimeline({
             title: title, // 分享标题
             link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: imgUrl, // 分享图标
+            imgUrl: imageUrl, // 分享图标
             success: function () {
               // 用户确认分享后执行的回调函数
               console.log("分享成功")
@@ -201,9 +203,10 @@
              cancel: function () {
               // 用户取消分享后执行的回调函数
               console.log("取消分享")
-            });
+            }
+          })
 
-        });
+        })
 
 
     </script>
