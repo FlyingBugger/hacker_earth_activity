@@ -1,18 +1,40 @@
 # coding=utf-8
 import os
 import sys
-
+import requests
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+import hashlib
 from register.models import *
+from sign import *
+
+temp_ticket=""
+
+def GetWexinParams():
+	url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
+	temp=requests.get(url)
+	json=temp.json()
+	access_token=json["access_token"]
+	expires_in=json["expires_in"]
+	url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token={}".format(access_token)
+	temp=requests.get(url)
+	json=temp.json()
+	ticket=json["ticket"]
+	temp_ticket=ticket
+	temp_sign=Sign(jsapi_ticket=ticket,url="http://salon.hackerearth.cn/").sign()
+	return temp_sign
+
 
 
 def index(request):
-	return render (request, "moc/index.html")
+	if temp_ticket=='':
+		WEXIN_PARAMS=GetWexinParams()
+
+	print WEXIN_PARAMS
+	return render (request, "moc/index.html",WEXIN_PARAMS)
 
 def get_form(request):
 	return render (request, "moc/form.html")
