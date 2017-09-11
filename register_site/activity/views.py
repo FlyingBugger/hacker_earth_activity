@@ -4,14 +4,25 @@ import sys
 import requests
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
+from django.views.decorators.http import require_GET
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import hashlib
 from register.models import *
 from sign import *
-
+from django.http import JsonResponse
 temp_ticket=""
+
+@require_GET
+def get_wexin_params(request):
+	host = request.get_host ()
+	full_url = request.get_full_path ()
+	url = host + full_url
+	print full_url
+	WEXIN_PARAMS = GetWexinParams (temp_ticket, url)
+	return JsonResponse(WEXIN_PARAMS)
+
 
 def GetWexinParams(p_ticket,full_url):
 
@@ -19,6 +30,7 @@ def GetWexinParams(p_ticket,full_url):
 		temp_sign = Sign (p_ticket,full_url).sign ()
 		print "++++"
 	else:
+		print
 		url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
 		temp=requests.get(url)
 		json=temp.json()
@@ -37,12 +49,7 @@ def GetWexinParams(p_ticket,full_url):
 
 
 def index(request):
-	host=request.get_host()
-	full_url=request.get_full_path()
-	url=host+full_url
-	print full_url
-	WEXIN_PARAMS = GetWexinParams (temp_ticket,url)
-	return render (request, "moc/index.html",WEXIN_PARAMS)
+	return render (request, "moc/index.html")
 
 def get_form(request):
 	return render (request, "moc/form.html")

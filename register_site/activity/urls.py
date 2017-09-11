@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
+    url(r'^get_wexin_params',views.get_wexin_params),
     url(r'^get_form', views.get_form),
 
     url(r'^poster', views.poster_page),
