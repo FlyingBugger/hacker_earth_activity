@@ -30,7 +30,7 @@ def GetWexinParams(p_ticket):
 		ticket=json["ticket"]
 		global temp_ticket
 		temp_ticket=ticket
-		temp_sign=Sign(jsapi_ticket=ticket,url="http://salon.hackerearth.cn/").sign()
+		temp_sign=Sign(ticket,"http://salon.hackerearth.cn").sign()
 		print "-------{}".format(temp_sign)
 	return temp_sign
 
