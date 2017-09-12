@@ -13,24 +13,14 @@
      <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
    <script type="text/javascript">
-   function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            csrftoken=$("#csrf_token").val()
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    }
-});
 
         $.ajax({
           url:'http://salon.hackerearth.cn/get_wexin_params',
           type:'post',
           data:{
             "share_url":window.location.href.split('#')[0],
+            "csrfmiddlewaretoken":$("p[name='csrfmiddlewaretoken']").val();
+
           },
           success:function(_data){
            console.log(_data);
