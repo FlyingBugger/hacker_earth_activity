@@ -46,7 +46,7 @@ def GetWexinParams(p_ticket,full_url):
 
 
 def getMP_varify(request):
-	return HttpResponse ("uwv9gfOrbRDTCkEe")
+	return HttpResponse ("XWsldS5dzRvbRcvT")
 def get_test(request):
 	return render(request,"moc/test.html")
 
