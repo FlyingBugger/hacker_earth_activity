@@ -4,7 +4,7 @@ import sys
 import requests
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -15,13 +15,10 @@ from django.http import JsonResponse
 temp_ticket=""
 
 
-@require_GET
+@require_POST
 def get_wexin_params(request):
-	host = request.get_host ()
-	full_url = request.get_full_path ()
-	url = "http://salon.hackerearth.cn/media/HE_activity/assets/build/moc/index.html"
-	print full_url
-	WEXIN_PARAMS = GetWexinParams (temp_ticket, url)
+	share_url=request.POST.get("share_url")
+	WEXIN_PARAMS = GetWexinParams (temp_ticket, share_url)
 	return JsonResponse(WEXIN_PARAMS)
 
 
@@ -50,6 +47,8 @@ def GetWexinParams(p_ticket,full_url):
 
 def getMP_varify(request):
 	return HttpResponse ("uwv9gfOrbRDTCkEe")
+def get_test(request):
+	return render(request,"moc/test.html")
 
 def index(request):
 	return render (request, "moc/index.html")
