@@ -144,23 +144,22 @@
       </footer> <button class="btn fixed-item btn-action">立即报名参加</button> </main>
     <!--javascript-->
 
-
+     <p>{% csrf_token %}</p>
     <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
 
-        <script type="text/javascript">
-        <!--var url=decodeURI("{{url}}")-->
-        <!--var timestamp="{{timestamp}}"-->
-        <!--var nonceStr="{{nonceStr}}"-->
-        <!--var jsapi_ticket="{{jsapi_ticket}}"-->
-        <!--var signature="{{signature}}"-->
+       <script type="text/javascript">
 
-        <!--alert(location.href.split('#')[0])-->
         $.ajax({
           url:'http://salon.hackerearth.cn/get_wexin_params',
-          type:'get',
+          type:'post',
+          data:{
+            "share_url":window.location.href.split('#')[0],
+            "csrfmiddlewaretoken":$("input[name='csrfmiddlewaretoken']").val(),
+
+          },
           success:function(_data){
-            <!--console.log(_data);-->
+           console.log(_data);
              wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wxf699e63b171db08b', // 必填，公众号的唯一标识
@@ -170,12 +169,12 @@
             jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQZone","onMenuShareQQ"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
              wx.ready(function () {
-          
+
           var title='沙龙邀请函'// 分享标题
           var desc='大数据时代“人才”+“创新”一体化新生态系统'
           var link='http://salon.hackerearth.cn/'
           var imageUrl='http://salon.hackerearth.cn/media/QQ20170911-150722copy.png'
-          
+
           wx.onMenuShareAppMessage({
              title: title,
              desc: desc, // 分享描述
@@ -214,7 +213,7 @@
           }
         })
 
-        
+
 
     </script>
     

@@ -9,7 +9,7 @@
 
 
 <body>
-    <p id="csrf_token">{% csrf_token %}</p>
+    <p>{% csrf_token %}</p>
      <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
    <script type="text/javascript">
@@ -38,7 +38,7 @@
           var desc='大数据时代“人才”+“创新”一体化新生态系统'
           var link='http://salon.hackerearth.cn/'
           var imageUrl='http://salon.hackerearth.cn/media/QQ20170911-150722copy.png'
-          alert()
+  
           wx.onMenuShareAppMessage({
              title: title,
              desc: desc, // 分享描述
