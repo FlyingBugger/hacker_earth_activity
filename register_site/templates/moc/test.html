@@ -19,7 +19,7 @@
           type:'post',
           data:{
             "share_url":window.location.href.split('#')[0],
-            "csrfmiddlewaretoken":$("p[name='csrfmiddlewaretoken']").val(),
+            "csrfmiddlewaretoken":$("input[name='csrfmiddlewaretoken']").val(),
 
           },
           success:function(_data){
