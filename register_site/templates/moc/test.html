@@ -6,11 +6,24 @@
     <title>Title</title>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 </head>
-<body>
 
+
+<body>
+    <!--<p id="csrf_token">{% csrf_token %}</p>-->
      <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
    <script type="text/javascript">
+   function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
 
         $.ajax({
           url:'http://salon.hackerearth.cn/get_wexin_params',

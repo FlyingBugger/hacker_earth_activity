@@ -19,4 +19,3 @@ SECRET = '12345678'
 IV = '7v3k5b2j'
 
 
-CSRF_COOKIE_SECURE = False
