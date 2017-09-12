@@ -9,7 +9,7 @@
 
 
 <body>
-    <!--<p id="csrf_token">{% csrf_token %}</p>-->
+    <p id="csrf_token">{% csrf_token %}</p>
      <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
    <script type="text/javascript">
@@ -20,6 +20,7 @@
 $.ajaxSetup({
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            csrftoken=$("#csrf_token").val()
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
         }
     }
