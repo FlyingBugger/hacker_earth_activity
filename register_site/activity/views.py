@@ -14,6 +14,7 @@ from sign import *
 from django.http import JsonResponse
 temp_ticket=""
 
+
 @require_GET
 def get_wexin_params(request):
 	host = request.get_host ()
@@ -47,6 +48,8 @@ def GetWexinParams(p_ticket,full_url):
 	return temp_sign
 
 
+def getMP_varify(request):
+	return HttpResponse ("uwv9gfOrbRDTCkEe")
 
 def index(request):
 	return render (request, "moc/index.html")
