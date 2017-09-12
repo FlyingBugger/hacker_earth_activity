@@ -18,7 +18,7 @@ temp_ticket=""
 def get_wexin_params(request):
 	host = request.get_host ()
 	full_url = request.get_full_path ()
-	url = host + full_url
+	url = "http://salon.hackerearth.cn/media/HE_activity/assets/build/moc/index.html"
 	print full_url
 	WEXIN_PARAMS = GetWexinParams (temp_ticket, url)
 	return JsonResponse(WEXIN_PARAMS)
