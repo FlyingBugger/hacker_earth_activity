@@ -1,18 +1,4 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-</head>
 
-
-<body>
-    <p>{% csrf_token %}</p>
-     <script src="{% static 'javascript/vendor.js' %}"></script>
-    <script src="{% static 'javascript/app.js' %}"></script>
-   <script type="text/javascript">
 
         $.ajax({
           url:'http://salon.hackerearth.cn/get_wexin_params',
@@ -25,7 +11,7 @@
           success:function(_data){
            console.log(_data);
              wx.config({
-            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: 'wxb6d7b7803694fc83', // 必填，公众号的唯一标识
             timestamp: _data.timestamp, // 必填，生成签名的时间戳
             nonceStr: _data.nonceStr, // 必填，生成签名的随机串
@@ -36,9 +22,9 @@
 
           var title='沙龙邀请函'// 分享标题
           var desc='大数据时代“人才”+“创新”一体化新生态系统'
-          var link="http://salon.hackerearth.cn/test"
+          var link='http://salon.hackerearth.cn/'
           var imageUrl='http://salon.hackerearth.cn/media/QQ20170911-150722copy.png'
-          alert("in")
+
           wx.onMenuShareAppMessage({
              title: title,
              desc: desc, // 分享描述
@@ -48,11 +34,11 @@
              dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
              success: function () {
               // 用户确认分享后执行的回调函数
-              alert("分享成功")
+              console.log("分享成功")
             },
              cancel: function () {
               // 用户取消分享后执行的回调函数
-              alert("取消分享")
+              console.log("取消分享")
             }
           })
 
@@ -78,8 +64,3 @@
         })
 
 
-
-    </script>
-
-</body>
-</html>

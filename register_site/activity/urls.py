@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^get_wexin_params',views.get_wexin_params),
     url(r'^get_form', views.get_form),
     url(r'MP_verify_XWsldS5dzRvbRcvT.txt',views.getMP_varify),
-    url(r'test',views.get_test),
+
 
     url(r'^poster', views.poster_page),
     url(r'^signup', views.signup_page),
