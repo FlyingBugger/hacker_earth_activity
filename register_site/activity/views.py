@@ -29,7 +29,7 @@ def GetWexinParams(p_ticket,full_url):
 		print "++++"
 	else:
 		print
-		url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format(os.getenv("HE_WECHAT_PUBLIC_APPID"),os.getenv("HE_WECHAT_PUBLIC_APPSECRET"))
+		url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}".format("wx67ea6178ea26008a","33891f88655672a39df08079fa40397b")
 		temp=requests.get(url)
 		json=temp.json()
 		access_token=json["access_token"]
