@@ -38,6 +38,7 @@ def GetWexinParams(ticket,share_url):
 	else:
 		token_url=temp_token_url.format(APPID,APPSECRET)
 		token_json=requests.get(token_url).json()
+		print token_json
 		access_token=token_json["access_token"]
 
 		ticket_url=temp_ticket_url.format(access_token)
