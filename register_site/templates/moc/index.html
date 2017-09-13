@@ -144,10 +144,11 @@
       </footer> <button class="btn fixed-item btn-action">立即报名参加</button> </main>
     <!--javascript-->
 
-     <p>{% csrf_token %}</p>
+    {% csrf_token %}
     <script src="{% static 'javascript/vendor.js' %}"></script>
     <script src="{% static 'javascript/app.js' %}"></script>
-    <script type="text/javascript" src="{% static 'javascript/wexinShare.js' %}"></script>
+    
+       
     
     <!--<script>-->
     <!--var _hmt = _hmt || [];-->
