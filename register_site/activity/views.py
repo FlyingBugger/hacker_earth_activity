@@ -23,7 +23,7 @@ temp_ticket_url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&a
 @require_POST
 def get_wexin_params(request):
 	share_url=request.POST.get("share_url")
-	WEXIN_PARAMS = GetWexinParams (JSAPI_ticket, share_url)
+	WEXIN_PARAMS = GetWexinParams (share_url)
 	return JsonResponse(WEXIN_PARAMS)
 
 
