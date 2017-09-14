@@ -27,26 +27,30 @@ def get_wexin_params(request):
 	return JsonResponse(WEXIN_PARAMS)
 
 
-LAST_REQUEST_TIME=time.time()
-VALUE=''
+def static_vars(**kwargs):
+    def decorate(func):
+        for k in kwargs:
+            setattr(func, k, kwargs[k])
+        return func
+    return decorate
+
+@static_vars(VALUE='',LAST_REQUEST_TIME=time.time())
 def cached_ticket(func):
 	def warpper(*args,**kwargs):
 		current_time=time.time()
-		global VALUE
-		global LAST_REQUEST_TIME
-		if VALUE=='':
+		if cached_ticket.VALUE=='':
 			print "1"
-			VALUE=func(*args,**kwargs)
-			return VALUE
-		elif current_time-LAST_REQUEST_TIME>7190:
-			print "last:{}".format(LAST_REQUEST_TIME)
+			cached_ticket.VALUE=func(*args,**kwargs)
+			return cached_ticket.VALUE
+		elif current_time-cached_ticket.LAST_REQUEST_TIME>7190:
+			print "last:{}".format(cached_ticket.LAST_REQUEST_TIME)
 			print "now_:{}".format(current_time)
-			LAST_REQUEST_TIME = current_time
-			VALUE = func(*args, **kwargs)
-			return VALUE
+			cached_ticket.LAST_REQUEST_TIME = current_time
+			cached_ticket.VALUE = func(*args, **kwargs)
+			return cached_ticket.VALUE
 		else:
 			print "3"
-			return VALUE
+			return cached_ticket.VALUE
 	return warpper
 
 @cached_ticket
