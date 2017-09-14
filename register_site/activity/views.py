@@ -34,9 +34,12 @@ def cached_ticket(func):
 		current_time=time.time()
 		global VALUE
 		global LAST_REQUEST_TIME
-		if current_time-LAST_REQUEST_TIME>7190 or VALUE=='':
-			LAST_REQUEST_TIME=current_time
+		if VALUE=='':
 			VALUE=func(*args,**kwargs)
+			return VALUE
+		elif current_time-LAST_REQUEST_TIME>7190:
+			LAST_REQUEST_TIME = current_time
+			VALUE = func(*args, **kwargs)
 			return VALUE
 		else:
 			return VALUE
