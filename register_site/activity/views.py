@@ -12,16 +12,12 @@ import hashlib
 from register.models import *
 from sign import *
 from django.http import JsonResponse
-
+import time
 
 APPID=os.getenv("MONSTAR_WECHAT_PUBLIC_APPID")
 APPSECRET=os.getenv("MONSTAR_WECHAT_PUBLIC_APPSECRET")
 temp_token_url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={}&secret={}"
 temp_ticket_url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token={}"
-JSAPI_ticket=""
-
-
-
 
 
 @require_POST
@@ -31,23 +27,35 @@ def get_wexin_params(request):
 	return JsonResponse(WEXIN_PARAMS)
 
 
-def GetWexinParams(ticket,share_url):
+LAST_REQUEST_TIME=time.time()
+VALUE=''
+def cached_ticket(func):
+	def warpper(*args,**kwargs):
+		current_time=time.time()
+		global VALUE
+		if current_time-LAST_REQUEST_TIME>7190 or VALUE=='':
+			global LAST_REQUEST_TIME
+			LAST_REQUEST_TIME=current_time
+			VALUE=func(*args,**kwargs)
+			return VALUE
+		else:
+			return VALUE
+	return warpper
 
-	if 0:
-		temp_sign = Sign (ticket,share_url).sign ()
-	else:
-		token_url=temp_token_url.format(APPID,APPSECRET)
-		token_json=requests.get(token_url).json()
-		print token_json
-		access_token=token_json["access_token"]
+@cached_ticket
+def RequestTicket():
+	token_url = temp_token_url.format(APPID, APPSECRET)
+	token_json = requests.get(token_url).json()
+	access_token = token_json["access_token"]
+	print token_json
+	ticket_url = temp_ticket_url.format(access_token)
+	ticket_json = requests.get(ticket_url).json()
+	ticket = ticket_json["ticket"]
+	return ticket
 
-		ticket_url=temp_ticket_url.format(access_token)
-		ticket_json=requests.get(ticket_url).json()
-		ticket=ticket_json["ticket"]
-		expires_in=ticket_json["expires_in"]
-		global temp_ticket
-		temp_ticket=ticket
-		sign_json=Sign(ticket,share_url).sign()
+def GetWexinParams(share_url):
+	ticket=RequestTicket()
+	sign_json = Sign(ticket, share_url).sign()
 	return sign_json
 
 
