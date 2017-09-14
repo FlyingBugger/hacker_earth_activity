@@ -12,7 +12,7 @@ import hashlib
 from register.models import *
 from sign import *
 from django.http import JsonResponse
-import time
+from django.core.cache import cache
 
 APPID=os.getenv("MONSTAR_WECHAT_PUBLIC_APPID")
 APPSECRET=os.getenv("MONSTAR_WECHAT_PUBLIC_APPSECRET")
@@ -27,30 +27,15 @@ def get_wexin_params(request):
 	return JsonResponse(WEXIN_PARAMS)
 
 
-def static_vars(**kwargs):
-    def decorate(func):
-        for k in kwargs:
-            setattr(func, k, kwargs[k])
-        return func
-    return decorate
-
-@static_vars(VALUE='',LAST_REQUEST_TIME=time.time())
 def cached_ticket(func):
 	def warpper(*args,**kwargs):
-		current_time=time.time()
-		if cached_ticket.VALUE=='':
-			print "1"
-			cached_ticket.VALUE=func(*args,**kwargs)
-			return cached_ticket.VALUE
-		elif current_time-cached_ticket.LAST_REQUEST_TIME>7190:
-			print "last:{}".format(cached_ticket.LAST_REQUEST_TIME)
-			print "now_:{}".format(current_time)
-			cached_ticket.LAST_REQUEST_TIME = current_time
-			cached_ticket.VALUE = func(*args, **kwargs)
-			return cached_ticket.VALUE
+		value=cache.get('jsapi_ticket')
+		if value is not None:
+			return value
 		else:
-			print "3"
-			return cached_ticket.VALUE
+			value=func()
+			cache.set('jsapi_ticket',value,7190)
+			return value
 	return warpper
 
 @cached_ticket
