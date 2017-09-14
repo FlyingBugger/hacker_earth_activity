@@ -35,13 +35,17 @@ def cached_ticket(func):
 		global VALUE
 		global LAST_REQUEST_TIME
 		if VALUE=='':
+			print "1"
 			VALUE=func(*args,**kwargs)
 			return VALUE
 		elif current_time-LAST_REQUEST_TIME>7190:
+			print "last:{}".format(LAST_REQUEST_TIME)
+			print "now_:{}".format(current_time)
 			LAST_REQUEST_TIME = current_time
 			VALUE = func(*args, **kwargs)
 			return VALUE
 		else:
+			print "3"
 			return VALUE
 	return warpper
 
