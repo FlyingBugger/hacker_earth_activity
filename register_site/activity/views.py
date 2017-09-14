@@ -33,8 +33,8 @@ def cached_ticket(func):
 	def warpper(*args,**kwargs):
 		current_time=time.time()
 		global VALUE
+		global LAST_REQUEST_TIME
 		if current_time-LAST_REQUEST_TIME>7190 or VALUE=='':
-			global LAST_REQUEST_TIME
 			LAST_REQUEST_TIME=current_time
 			VALUE=func(*args,**kwargs)
 			return VALUE
@@ -47,7 +47,7 @@ def RequestTicket():
 	token_url = temp_token_url.format(APPID, APPSECRET)
 	token_json = requests.get(token_url).json()
 	access_token = token_json["access_token"]
-	print token_json
+	print "请求token：{}".format(token_json)
 	ticket_url = temp_ticket_url.format(access_token)
 	ticket_json = requests.get(ticket_url).json()
 	ticket = ticket_json["ticket"]
